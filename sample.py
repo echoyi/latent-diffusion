@@ -58,7 +58,7 @@ def main(args):
     img_id = args.start_img_id
 
     ddim_steps = args.ddim_steps
-    ddim_eta = 0.0
+    ddim_eta = args.eta
     scale = args.scale  # for unconditional guidance
 
 
@@ -112,5 +112,6 @@ if __name__ == "__main__":
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--n-samples-per-class", type=int, default=3, help='number of samples per class, default 3')
     parser.add_argument("--start_img_id", type=int, default=0, help='img id of the first generated image, default 0')
+    parser.add_argument("--eta", type=float, default=0, help='ddim_eta parameter for noise')
     args = parser.parse_args()
     main(args)
